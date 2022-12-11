@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 
 function Header() {
     return (
-        <>
-            <label>Search Your Favorite Character</label>
-            <input type="text" />
+        <div className='header-text'>
+            <h1>Search Your Favorite Character</h1>
+            <input type="text" placeholder='Search by Name, Birthdate, Height, Mass, Homeworld, Species'/>
             <button>Run Search</button>
-        </>
+        </div>
     )
 }
 
