@@ -17,12 +17,11 @@ function Header() {
     return (
         <>
             <div className='header-text'>
-                <h1>Search Your Favorite Character</h1>
+                <h1>Star Wars Lore Database</h1>
                 <input 
                 value={search}
                 type="text" 
                 id='input'
-                placeholder='Search by Name, Birthdate, Height, Mass, Homeworld, Species'
                 onChange={handleChange}
                 required
                 />
