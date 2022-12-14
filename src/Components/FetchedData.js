@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import Axios from 'axios';
 import Table from 'react-bootstrap/Table';
 
-function ComponentDidMount() {
+function ComponentDidMount ({ search }) {
 
-  const [index, setIndex] = useState()
+  const [index, setIndex] = useState('')
 
     useEffect(() => {
-      axios.get('https://swapi.dev/api/')
+      Axios.get('https://swapi.dev/api/')
       .then(response => {
         console.log('Getting from :', response.data);
         setIndex(response.data);
@@ -17,6 +17,20 @@ function ComponentDidMount() {
       });
   
     }, [])
+
+    
+      // return (
+      //   <tr>
+      //     <td>{}</td>
+      //     <td></td>
+      //     <td></td>
+      //     <td></td>
+      //     <td></td>
+      //     <td></td>
+      //   </tr>
+      // )
+    
+    
 
   
     return (
@@ -32,7 +46,7 @@ function ComponentDidMount() {
             </tr>
           </thead>
           <tbody>
-            
+             
           </tbody>
     </Table>
     )

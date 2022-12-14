@@ -6,13 +6,10 @@ function Header() {
     const [search, setSearch] = useState('')
 
     const handleChange = (event) => {
+        event.preventDefault();
         setSearch(event.target.value)
         console.log(search)
     };
-
-    const handleClick = () => {
-        
-    }
 
     return (
         <>
@@ -25,10 +22,12 @@ function Header() {
                 onChange={handleChange}
                 required
                 />
-                <button onClick={handleClick}>Run Search</button>
+                <button onClick={handleChange}>Run Search</button>
             </div>
             <div>
-                <Table />
+                <Table 
+                search={search}
+                />
             </div>
         </>
     )
