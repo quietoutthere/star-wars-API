@@ -2,37 +2,30 @@ import { useEffect, useState } from 'react';
 import Axios from 'axios';
 import Table from 'react-bootstrap/Table';
 
-function ComponentDidMount ({ search }) {
+function FetchedData({ search }) {
 
-  const [index, setIndex] = useState('')
+  const [data, setData] = useState([])
+  const [dataArray, setDataArray] = useState();
 
     useEffect(() => {
       Axios.get('https://swapi.dev/api/')
       .then(response => {
         console.log('Getting from :', response.data);
-        setIndex(response.data);
+        setData(response.data);
       })
       .catch(error => {
         console.log(error);
       });
-  
-    }, [])
+    }, [search])
 
+    const tableBody = data.map((items) => {
+      return (
+        <tr>
+          <td>{ (items) }</td>
+        </tr>
+      )
+    });
     
-      // return (
-      //   <tr>
-      //     <td>{}</td>
-      //     <td></td>
-      //     <td></td>
-      //     <td></td>
-      //     <td></td>
-      //     <td></td>
-      //   </tr>
-      // )
-    
-    
-
-  
     return (
         <Table striped bordered hover variant="dark">
           <thead>
@@ -46,10 +39,10 @@ function ComponentDidMount ({ search }) {
             </tr>
           </thead>
           <tbody>
-             
+             { tableBody }
           </tbody>
     </Table>
     )
   }
 
-export default ComponentDidMount;
+export default FetchedData;
