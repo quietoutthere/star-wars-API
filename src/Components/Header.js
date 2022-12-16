@@ -14,7 +14,7 @@ function Header() {
     return (
         <>
             <div className='header-text'>
-                <h1>Star Wars Lore Database</h1>
+                <h1>Star Wars</h1>
                 <input 
                 value={search}
                 type="text" 

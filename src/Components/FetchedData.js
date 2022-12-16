@@ -4,8 +4,7 @@ import Table from 'react-bootstrap/Table';
 
 function FetchedData({ search }) {
 
-  const [data, setData] = useState([])
-  const [dataArray, setDataArray] = useState();
+  const [data, setData] = useState([]);
 
     useEffect(() => {
       Axios.get('https://swapi.dev/api/')
@@ -16,12 +15,12 @@ function FetchedData({ search }) {
       .catch(error => {
         console.log(error);
       });
-    }, [search])
+    }, [])
 
     const tableBody = data.map((items) => {
       return (
         <tr>
-          <td>{ (items) }</td>
+          <td>{ items }</td>
         </tr>
       )
     });
