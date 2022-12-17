@@ -4,23 +4,24 @@ import Table from 'react-bootstrap/Table';
 
 function FetchedData({ search }) {
 
-  const [data, setData] = useState([]);
+  const [characters, setCharacters] = useState([]);
 
     useEffect(() => {
-      Axios.get('https://swapi.dev/api/')
+      Axios.get('https://swapi.dev/api/people/')
       .then(response => {
-        console.log('Getting from :', response.data);
-        setData(response.data);
+        console.log('Getting from :', response.data.results);
+        setCharacters(response.data.results);
       })
       .catch(error => {
         console.log(error);
       });
     }, [])
-
-    const tableBody = data.map((items) => {
+    
+    const tableBody = characters.map((character) => {
+      debugger;
       return (
-        <tr>
-          <td>{ items }</td>
+        <tr id={Math.random()} key='id'>
+          <td>{ character.name }</td>
         </tr>
       )
     });
