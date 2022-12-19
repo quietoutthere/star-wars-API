@@ -40,7 +40,7 @@ function FetchedData({ search }) {
     });
     
     return (
-        <Table striped bordered hover variant="dark">
+        <Table className='table'>
           <thead>
             <tr>
               <th>Name</th>
