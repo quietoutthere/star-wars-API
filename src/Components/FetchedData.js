@@ -1,36 +1,30 @@
 import { useEffect, useState } from 'react';
-import Axios from 'axios';
 import Table from 'react-bootstrap/Table';
+import axios from 'axios';
 
 function FetchedData({ search }) {
 
   const [characters, setCharacters] = useState([]);
-  const [homeWorlds, setHomeWorlds] = useState([]);
   const [url, setUrl] = useState('https://swapi.dev/api/people/')
 
-    useEffect(() => {
-      Axios.get(url)
-      .then(response => {
-        console.log('Getting from :', response.data.results);
-        setCharacters(response.data.results);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+  const getHomeworld = async (homeworldUrl) => {
+    const { data } = await axios.get(homeworldUrl)
+    return data.name;
+  };
 
-      Axios.get('https://swapi.dev/api/planets/')
-      .then(response => {
-        console.log('Getting from :', response.data.results);
-        setHomeWorlds(response.data.results);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    useEffect( () => {
+      const getData = async () => {
+        const response = await axios.get(url);
+        const chars = response.data.results;
+
+        for (const char of chars) {
+          char.homeworldName = await getHomeworld(char.homeworld);
+        }
+        setCharacters(chars);
+      }
+      getData();
     }, [])
 
-    const worlds = homeWorlds.map((homeWorld) => {
-      return homeWorld
-    });
     
     const tableBody = characters.map((character) => {
       return (
@@ -39,7 +33,8 @@ function FetchedData({ search }) {
           <td>{ character.birth_year }</td>
           <td>{ character.height }</td>
           <td>{ character.mass }</td>
-          <td>{ worlds.name }</td>
+          <td>{ character.homeworldName }</td>
+          <td>{ character.homeworldName }</td>
         </tr>
       )
     });
@@ -64,3 +59,22 @@ function FetchedData({ search }) {
   }
 
 export default FetchedData;
+
+
+// Axios.get(url)
+//       .then(response => {
+//         console.log('Getting from :', response.data.results);
+//         setCharacters(response.data.results);
+//       })
+//       .catch(error => {
+//         console.log(error);
+//       });
+
+//       Axios.get('https://swapi.dev/api/planets/')
+//       .then(response => {
+//         console.log('Getting from :', response.data.results);
+//         setHomeWorlds(response.data.results);
+//       })
+//       .catch(error => {
+//         console.log(error);
+//       });
