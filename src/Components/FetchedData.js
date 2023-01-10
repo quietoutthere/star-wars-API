@@ -7,7 +7,7 @@ function FetchedData({ search }) {
   const [characters, setCharacters] = useState([]);
   const [url, setUrl] = useState('https://swapi.dev/api/people/')
 
-  const getHomeworld = async (homeworldUrl) => {
+  const getCharacterData = async (homeworldUrl) => {
     const { data } = await axios.get(homeworldUrl)
     return data.name;
   };
@@ -16,11 +16,17 @@ function FetchedData({ search }) {
       const getData = async () => {
         const response = await axios.get(url);
         const chars = response.data.results;
-
+        
         for (const char of chars) {
-          char.homeworldName = await getHomeworld(char.homeworld);
+          char.homeworldName = await getCharacterData(char.homeworld);
+          char.speciesName = await getCharacterData(char.species)
+            if (!char.speciesName ) {
+              char.speciesName = "Human"}
+
+          console.log(chars)
         }
         setCharacters(chars);
+        
       }
       getData();
     }, [])
@@ -28,13 +34,13 @@ function FetchedData({ search }) {
     
     const tableBody = characters.map((character) => {
       return (
-        <tr id= {Math.random()} key='id'>
+        <tr>
           <td>{ character.name }</td>
           <td>{ character.birth_year }</td>
           <td>{ character.height }</td>
           <td>{ character.mass }</td>
           <td>{ character.homeworldName }</td>
-          <td>{ character.homeworldName }</td>
+          <td>{ character.speciesName }</td>
         </tr>
       )
     });
