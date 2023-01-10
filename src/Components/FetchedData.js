@@ -6,9 +6,10 @@ function FetchedData({ search }) {
 
   const [characters, setCharacters] = useState([]);
   const [homeWorlds, setHomeWorlds] = useState([]);
+  const [url, setUrl] = useState('https://swapi.dev/api/people/')
 
     useEffect(() => {
-      Axios.get('https://swapi.dev/api/people/')
+      Axios.get(url)
       .then(response => {
         console.log('Getting from :', response.data.results);
         setCharacters(response.data.results);
