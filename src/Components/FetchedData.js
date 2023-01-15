@@ -2,9 +2,6 @@ import { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
 import axios from 'axios';
 import React from 'react';
-// import BootstrapTable from 'react-bootstrap-table2-paginator';
-// import PaginationFactory from 'react-bootstrap-table2-paginator';
-// import * as ReactBootstrap from 'react-bootstrap';
 import Pagination from './Pagination';
 
 
@@ -14,8 +11,8 @@ function FetchedData({ search }) {
   const [loading, setLoading] = useState(false);
   let url = 'https://swapi.dev/api/people/';
 
-  const getCharacterData = async (homeworldUrl) => {
-    const { data } = await axios.get(homeworldUrl)
+  const getCharacterData = async (characterData) => {
+    const { data } = await axios.get(characterData)
     return data.name;
   };
 
@@ -31,7 +28,7 @@ function FetchedData({ search }) {
           char.speciesName = "Human"
         }
       }
-      debugger;
+
       setCharacters(chars);
       setLoading(true);
 
@@ -71,7 +68,8 @@ function FetchedData({ search }) {
         </tbody>
       </Table>
       <Pagination
-        characters={characters} />
+        characters={characters}
+        url = {url}/>
     </>
 
   )
