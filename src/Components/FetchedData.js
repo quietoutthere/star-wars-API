@@ -5,11 +5,11 @@ import React from 'react';
 import Pagination from './Pagination';
 
 
-function FetchedData({ search }) {
+function FetchedData({ search, newUrl }) {
 
   const [characters, setCharacters] = useState([]);
   const [loading, setLoading] = useState(false);
-  let url = 'https://swapi.dev/api/people/';
+  const [url, setUrl] = useState('https://swapi.dev/api/people/');
 
   const getCharacterData = async (characterData) => {
     const { data } = await axios.get(characterData)
@@ -23,8 +23,9 @@ function FetchedData({ search }) {
 
       for (const char of chars) {
         char.homeworldName = await getCharacterData(char.homeworld);
-        char.speciesName = await getCharacterData(char.species)
-        if (!char.speciesName) {
+        char.speciesName = await getCharacterData
+        (char.species);
+            if (!char.speciesName) {
           char.speciesName = "Human"
         }
       }
@@ -37,9 +38,9 @@ function FetchedData({ search }) {
   }, [])
 
 
-  const tableBody = characters.map((character) => {
+  const tableBody = characters.map((character, index) => {
     return (
-      <tr>
+      <tr key={index}>
         <td>{character.name}</td>
         <td>{character.birth_year}</td>
         <td>{character.height}</td>
@@ -69,7 +70,11 @@ function FetchedData({ search }) {
       </Table>
       <Pagination
         characters={characters}
-        url = {url}/>
+        setCharacters = {setCharacters}
+        url = {url}
+        setUrl = {setUrl}
+        getCharacterData = {getCharacterData}/>
+        
     </>
 
   )
