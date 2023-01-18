@@ -5,13 +5,13 @@ import React from 'react';
 import PaginationFunctions from './PaginationFunctions';
 
 
-function FetchedData() {
+function FetchedData({search}) {
   
   const [characters, setCharacters] = useState([]);
   const [loading, setLoading] = useState(false);
   const [url, setUrl] = useState('https://swapi.dev/api/people/?page=1');
   
-
+  console.log('search:', search)
   const getCharacterData = async (characterData) => {
     const { data } = await axios.get(characterData)
     return data.name;

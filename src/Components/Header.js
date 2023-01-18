@@ -5,11 +5,15 @@ import Table from './FetchedData';
 function Header() {
     const [search, setSearch] = useState('')
 
-    const handleChange = (event) => {
-        event.preventDefault();
-        setSearch(event.target.value)
-        console.log(search)
+    const handleChange = (e) => {
+        e.preventDefault();
+        setSearch(e.target.value)
     };
+
+    const runSearch = (e) => {
+        e.preventDefault();
+        if (!e.target.value) return search
+    }
 
     return (
         <>
@@ -17,12 +21,12 @@ function Header() {
                 <h1>Star Wars</h1>
                 <input 
                 value={search}
-                type="text" 
+                type='text' 
                 id='input'
                 onChange={handleChange}
                 required
                 />
-                <button onClick={handleChange}>Run Search</button>
+                <button type='submit' onClick={runSearch}>Run Search</button>
             </div>
             <div>
                 <Table 

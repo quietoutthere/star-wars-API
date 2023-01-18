@@ -12,11 +12,9 @@ function PaginationFunctions ({setUrl, url}) {
             setUrl(response)
         } else {
             setUrl(response.data.next)
-        }
-                      
+        }         
     };
     
-
     const numberedKey = (e) => {
         e.preventDefault();
         const target = e.target.id       
