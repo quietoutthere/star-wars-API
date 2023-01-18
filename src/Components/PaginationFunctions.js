@@ -1,17 +1,19 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Pagination from './Pagination';
 import axios from 'axios';
 
 function PaginationFunctions ({setUrl, url}) {
-    const [pageNumber, setPageNumber] = useState(1);
     
     const nextKey = async (e) => {
         e.preventDefault();
         const response = await axios.get(url);
-        setUrl(response.data.next)
-            if (url === null) {
-                response = response
-            }            
+        setUrl(response.data.next);
+        if (response.data.next === null) {
+            setUrl(response)
+        } else {
+            setUrl(response.data.next)
+        }
+                      
     };
     
 
@@ -25,6 +27,11 @@ function PaginationFunctions ({setUrl, url}) {
         e.preventDefault();
         const response = await axios.get(url);
         setUrl(response.data.previous);
+        if (response.data.previous === null) {
+            setUrl(response)
+        } else {
+            setUrl(response.data.previous)
+        }
     }
 
     return (
