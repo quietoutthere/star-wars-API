@@ -5,7 +5,7 @@ import React from 'react';
 import PaginationFunctions from './PaginationFunctions';
 
 
-function FetchedData({ pageNumber }) {
+function FetchedData() {
   
   const [characters, setCharacters] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -73,7 +73,8 @@ function FetchedData({ pageNumber }) {
         setCharacters = {setCharacters}
         url = {url}
         setUrl = {setUrl}
-        getCharacterData = {getCharacterData}/>
+        getCharacterData = {getCharacterData}
+       />
         
     </>
 
