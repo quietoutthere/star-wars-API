@@ -2,17 +2,22 @@ import React from 'react';
 import { useState } from 'react';
 import Table from './FetchedData';
 
+
 function Header() {
     const [search, setSearch] = useState('')
+    const [searching, setSearching] = useState('');
 
     const handleChange = (e) => {
         e.preventDefault();
-        setSearch(e.target.value)
+        setSearching(e.target.value)
+        
     };
 
     const runSearch = (e) => {
         e.preventDefault();
-        if (!e.target.value) return search
+        setSearch(searching);
+        console.log(search)
+        
     }
 
     return (
@@ -20,7 +25,7 @@ function Header() {
             <div className='header-text'>
                 <h1>Star Wars</h1>
                 <input 
-                value={search}
+                value={searching}
                 type='text' 
                 id='input'
                 onChange={handleChange}

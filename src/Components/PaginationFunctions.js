@@ -6,6 +6,7 @@ function PaginationFunctions ({setUrl, url}) {
     
     const nextKey = async (e) => {
         e.preventDefault();
+        debugger;
         const response = await axios.get(url);
         setUrl(response.data.next);
         if (response.data.next === null) {
