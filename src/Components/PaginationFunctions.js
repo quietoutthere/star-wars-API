@@ -18,7 +18,7 @@ function PaginationFunctions ({setUrl, url, search}) {
     const numberedKey = (e) => {
         e.preventDefault();
         const target = e.target.id       
-        setUrl(`https://swapi.dev/api/people/?search=${search}&page=${target}`);
+        setUrl(`https://swapi.dev/api/people/?page=${target}`);
     }
 
     const previousKey = async (e) => {

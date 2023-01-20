@@ -3,14 +3,12 @@ import Table from 'react-bootstrap/Table';
 import axios from 'axios';
 import React from 'react';
 import PaginationFunctions from './PaginationFunctions';
-import Header from './Header'
 
-function FetchedData({search}) {
+function FetchedData({search, url, setUrl}) {
 
   const [characters, setCharacters] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [url, setUrl] = useState(`https://swapi.dev/api/people/?search=${search}&page=1`);
-  //next page / previous page state
+  
   
   
   const getCharacterData = async (characterData) => {
@@ -22,6 +20,7 @@ function FetchedData({search}) {
   useEffect(() => {
 
     const getData = async () => {
+      
       const response = await axios.get(url);
       const chars = response.data.results; 
       const searchResults = chars.filter(names => names.name.includes(search))
@@ -46,7 +45,7 @@ function FetchedData({search}) {
 
     }
     getData();
-  }, [url, search])
+  }, [url])
 
 
   const tableBody = characters.map((character, index) => {

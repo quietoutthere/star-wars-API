@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Table from './FetchedData';
 
 
@@ -7,6 +7,7 @@ import Table from './FetchedData';
 function Header() {
     const [search, setSearch] = useState('')
     const [searching, setSearching] = useState('');
+    const [url, setUrl] = useState(`https://swapi.dev/api/people/?search=${search}`);
 
     const handleChange = (e) => {
         e.preventDefault();
@@ -17,10 +18,12 @@ function Header() {
     const runSearch = (e) => {
         e.preventDefault();
         setSearch(searching);
-        console.log('searching:', searching)
-        
-        
+        console.log('search:', search)
     }
+
+    useEffect(() =>{
+        setUrl(`https://swapi.dev/api/people/?search=${search}`)
+    }, [search])
 
     return (
         <>
@@ -38,6 +41,8 @@ function Header() {
             <div>
                 <Table 
                 search={search}
+                setUrl = {setUrl}
+                url = {url}
                 />
             </div>
         </>
