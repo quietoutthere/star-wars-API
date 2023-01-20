@@ -2,11 +2,10 @@ import React from 'react';
 import Pagination from './Pagination';
 import axios from 'axios';
 
-function PaginationFunctions ({setUrl, url}) {
+function PaginationFunctions ({setUrl, url, search}) {
     
     const nextKey = async (e) => {
         e.preventDefault();
-        debugger;
         const response = await axios.get(url);
         setUrl(response.data.next);
         if (response.data.next === null) {
@@ -19,7 +18,7 @@ function PaginationFunctions ({setUrl, url}) {
     const numberedKey = (e) => {
         e.preventDefault();
         const target = e.target.id       
-        setUrl(`https://swapi.dev/api/people/?page=${target}`);
+        setUrl(`https://swapi.dev/api/people/?search=${search}&page=${target}`);
     }
 
     const previousKey = async (e) => {
@@ -38,7 +37,7 @@ function PaginationFunctions ({setUrl, url}) {
         nextKey ={nextKey}
         numberedKey = {numberedKey}
         previousKey = {previousKey}
-         />
+        />
     );
 }
 

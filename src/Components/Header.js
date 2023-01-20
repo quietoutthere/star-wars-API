@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Table from './FetchedData';
 
 
+
 function Header() {
     const [search, setSearch] = useState('')
     const [searching, setSearching] = useState('');
@@ -16,7 +17,8 @@ function Header() {
     const runSearch = (e) => {
         e.preventDefault();
         setSearch(searching);
-        console.log(search)
+        console.log('searching:', searching)
+        
         
     }
 
