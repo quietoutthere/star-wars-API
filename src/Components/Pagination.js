@@ -1,22 +1,28 @@
 import React from 'react';
 
-const Pagination = ({nextKey, numberedKey, previousKey}) => {
+const Pagination = ({ nextKey, numberedKey, previousKey, count, url }) => {
+    const numberButtons = [];
+    for (let i = 0; i < 9; i++) {
+        const isDisabled = count < ((i + 1) * 10) + 1;
 
-    return <nav aria-label="Page navigation example">
-            <ul className="pagination">
-                <li className="page-item" onClick={previousKey}><a className="page-link" href="#">Previous</a></li>
-                <li className="page-item" onClick={numberedKey}><a className="page-link" href="#" id='1'>1</a></li>
-                <li className="page-item" onClick={numberedKey}><a className="page-link" href="#" id='2'>2</a></li>
-                <li className="page-item" onClick={numberedKey}><a className="page-link" href="#" id='3'>3</a></li>
-                <li className="page-item" onClick={numberedKey}><a className="page-link" href="#" id='4'>4</a></li>
-                <li className="page-item" onClick={numberedKey}><a className="page-link" href="#" id='5'>5</a></li>
-                <li className="page-item" onClick={numberedKey}><a className="page-link" href="#" id='6'>6</a></li>
-                <li className="page-item" onClick={numberedKey}><a className="page-link" href="#" id='7'>7</a></li>
-                <li className="page-item" onClick={numberedKey}><a className="page-link" href="#" id='8'>8</a></li>
-                <li className="page-item" onClick={numberedKey}><a className="page-link" href="#" id='9'>9</a></li>
-                <li className="page-item" onClick={nextKey}><a className="page-link" href="#">Next</a></li>
-            </ul>
-        </nav>
+        const conditonalClass = isDisabled ? "page-item disabled" : "page-item ";
+
+        const conditionalFunction = (e) => isDisabled ? null : numberedKey(e);
+
+        numberButtons.push(
+            <li className={conditonalClass} onClick={conditionalFunction}>
+                <a className="page-link" href="#" tabIndex="-1" aria-disabled="true" id={i + 1}>{i + 1}</a>
+            </li>
+        )
+    }
+
+    return <nav aria-label="...">
+        <ul className="pagination">
+            <li className={url = 'https://swapi.dev/api/people/?page=1' ? "page-item disabled" : "page-item"} onClick={() => previousKey}><a className="page-link" href="#" tabIndex="-1" aria-disabled="true">Previous</a></li>
+            {numberButtons}
+            <li className={url = 'https://swapi.dev/api/people/?page=9' || count < 11 ? "page-item disabled" : "page-item"} onClick={nextKey}><a className="page-link" href="#">Next</a></li>
+        </ul>
+    </nav>
 };
 
 export default Pagination;

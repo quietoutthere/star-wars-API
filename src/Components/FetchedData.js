@@ -9,7 +9,8 @@ function FetchedData({search, url, setUrl}) {
 
   const [characters, setCharacters] = useState([]);
   const [loading, setLoading] = useState(false);
-  
+  const [count, setCount] = useState(0);
+  console.log(count)
 
   const getCharacterData = async (characterData) => {
     const { data } = await axios.get(characterData)
@@ -21,8 +22,12 @@ function FetchedData({search, url, setUrl}) {
 
     const getData = async () => {
       setLoading(false);
+      
       const response = await axios.get(url);
-      const chars = response.data.results; 
+      const chars = response.data.results;
+      const charCount = response.data.count;
+      setCount(charCount); 
+      
       const searchResults = chars.filter(names => names.name.includes(search))
 
       for (const char of chars) {
@@ -40,6 +45,7 @@ function FetchedData({search, url, setUrl}) {
       }
     
       setLoading(true);
+      return count
 
     }
     getData();
@@ -58,11 +64,6 @@ function FetchedData({search, url, setUrl}) {
       </tr>
     )
   });
-
-  const animation = 
-    <tr>
-      
-    </tr>
 
   return (
     <>
@@ -85,6 +86,7 @@ function FetchedData({search, url, setUrl}) {
         url = {url}
         setUrl = {setUrl}
         search = {search}
+        count = {count}
        />
     </>
   )

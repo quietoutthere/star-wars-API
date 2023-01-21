@@ -1,22 +1,25 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Pagination from './Pagination';
 import axios from 'axios';
 
-function PaginationFunctions ({setUrl, url}) {
-    
+
+function PaginationFunctions ({setUrl, url, count}) {
+
     const nextKey = async (e) => {
         e.preventDefault();
         const response = await axios.get(url);
-        setUrl(response.data.next);
+        const next = response.data.next
+        setUrl(next);
         if (response.data.next === null) {
             setUrl(response)
         } else {
-            setUrl(response.data.next)
+            setUrl(next)
         }         
     };
     
     const numberedKey = (e) => {
         e.preventDefault();
+        console.log(count)
         const target = e.target.id       
         setUrl(`https://swapi.dev/api/people/?page=${target}`);
     }
@@ -24,11 +27,12 @@ function PaginationFunctions ({setUrl, url}) {
     const previousKey = async (e) => {
         e.preventDefault();
         const response = await axios.get(url);
-        setUrl(response.data.previous);
+        const previous = response.data.previous
+        setUrl(previous);
         if (response.data.previous === null) {
             setUrl(response)
         } else {
-            setUrl(response.data.previous)
+            setUrl(previous)
         }
     }
 
@@ -37,6 +41,8 @@ function PaginationFunctions ({setUrl, url}) {
         nextKey ={nextKey}
         numberedKey = {numberedKey}
         previousKey = {previousKey}
+        count = {count}
+        url = {url}
         />
     );
 }
