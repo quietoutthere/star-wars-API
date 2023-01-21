@@ -2,7 +2,7 @@ import React from 'react';
 import Pagination from './Pagination';
 import axios from 'axios';
 
-function PaginationFunctions ({setUrl, url, search}) {
+function PaginationFunctions ({setUrl, url}) {
     
     const nextKey = async (e) => {
         e.preventDefault();

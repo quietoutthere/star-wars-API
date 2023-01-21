@@ -9,16 +9,16 @@ function Header() {
     const [searching, setSearching] = useState('');
     const [url, setUrl] = useState(`https://swapi.dev/api/people/?search=${search}`);
 
+
     const handleChange = (e) => {
         e.preventDefault();
         setSearching(e.target.value)
-        
     };
 
     const runSearch = (e) => {
         e.preventDefault();
-        setSearch(searching);
-        console.log('search:', search)
+        setSearch(searching[0].toUpperCase());
+        setSearching('');
     }
 
     useEffect(() =>{
@@ -30,6 +30,7 @@ function Header() {
             <div className='header-text'>
                 <h1>Star Wars</h1>
                 <input 
+                placeholder='Search A Character'
                 value={searching}
                 type='text' 
                 id='input'

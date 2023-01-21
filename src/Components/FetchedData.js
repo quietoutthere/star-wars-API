@@ -20,7 +20,7 @@ function FetchedData({search, url, setUrl}) {
   useEffect(() => {
 
     const getData = async () => {
-
+      setLoading(false);
       const response = await axios.get(url);
       const chars = response.data.results; 
       const searchResults = chars.filter(names => names.name.includes(search))
@@ -59,6 +59,11 @@ function FetchedData({search, url, setUrl}) {
     )
   });
 
+  const animation = 
+    <tr>
+      
+    </tr>
+
   return (
     <>
       <Table className='table'>
@@ -73,10 +78,10 @@ function FetchedData({search, url, setUrl}) {
           </tr>
         </thead>
         <tbody>
-          {loading ? (tableBody) : (<ReactBootStrap.Spinner animation='border' />)} 
+          {loading ? (tableBody) : (<tr><td><ReactBootStrap.Spinner animation='border' /></td></tr>)} 
         </tbody>
       </Table>
-      <PaginationFunctions
+      <PaginationFunctions 
         url = {url}
         setUrl = {setUrl}
         search = {search}
