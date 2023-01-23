@@ -10,7 +10,6 @@ function FetchedData({search, url, setUrl}) {
   const [characters, setCharacters] = useState([]);
   const [loading, setLoading] = useState(false);
   const [count, setCount] = useState(0);
-  console.log(count)
 
   const getCharacterData = async (characterData) => {
     const { data } = await axios.get(characterData)
@@ -46,12 +45,13 @@ function FetchedData({search, url, setUrl}) {
     
       setLoading(true);
       return count
-
+      
     }
     getData();
   }, [url])
 
-
+  
+  
   const tableBody = characters.map((character, index) => {
     return (
       <tr key={index}>

@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Pagination = ({ nextKey, numberedKey, previousKey, count, url }) => {
+const Pagination = ({ nextKey, numberedKey, previousKey, count}) => {
     const numberButtons = [];
+    const numOfPages = count % 10 === 0 ? count / 10 : Math.ceil(count / 10);
     for (let i = 0; i < 9; i++) {
-        const isDisabled = count < ((i + 1) * 10) + 1;
-
+        const isDisabled = i >= numOfPages;
         const conditonalClass = isDisabled ? "page-item disabled" : "page-item ";
 
         const conditionalFunction = (e) => isDisabled ? null : numberedKey(e);
