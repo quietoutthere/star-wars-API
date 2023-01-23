@@ -44,6 +44,7 @@ function Header() {
                 search={search}
                 setUrl = {setUrl}
                 url = {url}
+                setSearch = {setSearch}
                 />
             </div>
         </>
