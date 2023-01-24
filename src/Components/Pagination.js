@@ -11,16 +11,16 @@ const Pagination = ({ nextKey, numberedKey, previousKey, count, prevPageUrl, nex
 
         numberButtons.push(
             <li className={conditonalClass} onClick={conditionalFunction} key={i}>
-                <a className="page-link" href="#" tabIndex="-1" aria-disabled="true" id={i + 1}>{i + 1}</a>
+                <a className="page-link" href={conditonalClass} tabIndex="-1" aria-disabled="true" id={i + 1}>{i + 1}</a>
             </li>
         )
     }
 
     return <nav aria-label="...">
         <ul className="pagination">
-            <li className={prevPageUrl ? "page-item" : "page-item disabled"} onClick={previousKey}><a className="page-link" href="#" tabIndex="-1" aria-disabled="true">Previous</a></li>
+            <li className={prevPageUrl ? "page-item" : "page-item disabled"} onClick={previousKey}><a className="page-link" href={prevPageUrl} tabIndex="-1" aria-disabled="true">Previous</a></li>
             {numberButtons}
-            <li className={nextPageUrl ? "page-item" : "page-item disabled"} onClick={nextKey}><a className="page-link" href="#" tabIndex="-1" aria-disabled="true">Next</a></li>
+            <li className={nextPageUrl ? "page-item" : "page-item disabled"} onClick={nextKey}><a className="page-link" href={nextPageUrl} tabIndex="-1" aria-disabled="true">Next</a></li>
         </ul>
     </nav>
 };
