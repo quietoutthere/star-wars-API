@@ -19,8 +19,6 @@ function PaginationFunctions ({url, count, prevPageUrl, nextPageUrl, search, set
         setUrl(prevPageUrl);
     }
 
-    console.log('prevPageUrl:', prevPageUrl)
-
     return (
         <Pagination
         nextKey ={nextKey}

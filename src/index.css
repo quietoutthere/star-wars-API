@@ -1,9 +1,3 @@
-@font-face {
-    font-family: 'star-wars';
-    src: url("/fonts/Starjhol.ttf");
-}
-
-
 body {
     background-image: url("https://s1.1zoom.me/big0/283/Star_Wars_Movies_Planets_460653.jpg");
     background-size: cover;
