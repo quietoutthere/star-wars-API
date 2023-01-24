@@ -1,70 +1,18 @@
-# Getting Started with Create React App
+# Star Wars Database
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Use it here 
 
-## Available Scripts
 
-In the project directory, you can run:
+![star wars api](https://user-images.githubusercontent.com/108839805/214385496-16732031-7b29-4a2a-88f3-2fd46c49df3d.png)
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Description
+This is my second project using React.js framework and my first project using a RESTful API. Holy, moly did it feel good to get this one out of the way. I really had to dig down deep into the nitty gritty of programming to totally understand how to manipulate the data. The first area I had to research was properly understanding JSON, considering all the API data was returned as such. Secondly, I had to research and watch tutorials on asynchronous programming. I had initially begun my project using .then / .catch to make the information malleable, however, once I discovered async / await, my code was cleaned up to a more readable display. Cycling through the data and displaying it on a Bootstrap table was a relatively easy task, however, the next brick wall I ran into head first was activating and disabling my Bootstrap pagination buttons. I turned to Edabit and continually drilled loops to figure out the logic behind each ‘numbered button’. I also really had to understand props in order to get the information I needed all the way from my parent component ‘Header.js’, down to the lowest child component: the pagination.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+All in all I am very happy with how it works, as well as how it looks.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Author
+Evan Oyster - Front End Developer
+[LinkedIn](https://www.linkedin.com/feed/)

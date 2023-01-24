@@ -10,7 +10,8 @@ function FetchedData({search, url, setUrl}) {
   const [characters, setCharacters] = useState([]);
   const [loading, setLoading] = useState(false);
   const [count, setCount] = useState(0);
-  console.log(count)
+  const [nextPageUrl, setNextPageUrl] = useState('');
+  const [prevPageUrl, setPrevPageUrl] = useState('');
 
   const getCharacterData = async (characterData) => {
     const { data } = await axios.get(characterData)
@@ -26,9 +27,9 @@ function FetchedData({search, url, setUrl}) {
       const response = await axios.get(url);
       const chars = response.data.results;
       const charCount = response.data.count;
+      setNextPageUrl(response.data.next);
+      setPrevPageUrl(response.data.previous);
       setCount(charCount); 
-      
-      const searchResults = chars.filter(names => names.name.includes(search))
 
       for (const char of chars) {
         char.homeworldName = await getCharacterData(char.homeworld);
@@ -38,20 +39,17 @@ function FetchedData({search, url, setUrl}) {
         }
       }
       
-      if(search === '') {
-        setCharacters(chars)
-      } else {
-        setCharacters(searchResults)
-      }
+      setCharacters(chars)
     
       setLoading(true);
       return count
-
+      
     }
     getData();
   }, [url])
 
-
+  
+  
   const tableBody = characters.map((character, index) => {
     return (
       <tr key={index}>
@@ -84,9 +82,11 @@ function FetchedData({search, url, setUrl}) {
       </Table>
       <PaginationFunctions 
         url = {url}
-        setUrl = {setUrl}
         search = {search}
         count = {count}
+        nextPageUrl = {nextPageUrl}
+        prevPageUrl = {prevPageUrl}
+        setUrl = {setUrl}
        />
     </>
   )

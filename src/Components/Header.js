@@ -17,7 +17,7 @@ function Header() {
 
     const runSearch = (e) => {
         e.preventDefault();
-        setSearch(searching[0].toUpperCase() + searching.slice(1).toLowerCase());
+        setSearch(searching);
         setSearching('');
     }
 
@@ -44,6 +44,7 @@ function Header() {
                 search={search}
                 setUrl = {setUrl}
                 url = {url}
+                setSearch = {setSearch}
                 />
             </div>
         </>
