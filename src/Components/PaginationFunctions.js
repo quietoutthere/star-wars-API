@@ -1,46 +1,33 @@
 import React from 'react';
 import Pagination from './Pagination';
-import axios from 'axios';
 
+function PaginationFunctions ({url, count, prevPageUrl, nextPageUrl, search, setUrl}) {
 
-function PaginationFunctions ({setUrl, url, count}) {
-
-    const nextKey = async (e) => {
+    const nextKey =  (e) => {
         e.preventDefault();
-        const response = await axios.get(url);
-        const next = response.data.next
-        setUrl(next);
-        if (response.data.next === null) {
-            setUrl(response)
-        } else {
-            setUrl(next)
-        }         
+        setUrl(nextPageUrl);
     };
     
     const numberedKey = (e) => {
         e.preventDefault();
-        console.log(count)
         const target = e.target.id       
-        setUrl(`https://swapi.dev/api/people/?page=${target}`);
+        setUrl(`https://swapi.dev/api/people/?search=${search}&page=${target}`);
     }
 
-    const previousKey = async (e) => {
+    const previousKey = (e) => {
         e.preventDefault();
-        const response = await axios.get(url);
-        const previous = response.data.previous
-        setUrl(previous);
-        if (response.data.previous === null) {
-            setUrl(response)
-        } else {
-            setUrl(previous)
-        }
+        setUrl(prevPageUrl);
     }
+
+    console.log('prevPageUrl:', prevPageUrl)
 
     return (
         <Pagination
         nextKey ={nextKey}
         numberedKey = {numberedKey}
         previousKey = {previousKey}
+        nextPageUrl = {nextPageUrl}
+        prevPageUrl = {prevPageUrl}
         count = {count}
         url = {url}
         />
