@@ -1,5 +1,7 @@
 # Star Wars Database
 
+Interested in your favorite Star Wars character's hometown, or weight? Simply type in thier name (i.e. "Darth Maul") and the information will be displayed to a nicely organized table!
+
 Use it [here](https://main--stellar-biscuit-661310.netlify.app/) 
 
 
