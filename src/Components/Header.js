@@ -2,13 +2,10 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import Table from './FetchedData';
 
-
-
 function Header() {
     const [search, setSearch] = useState('')
     const [searching, setSearching] = useState('');
     const [url, setUrl] = useState(`https://swapi.dev/api/people/?search=${search}`);
-
 
     const handleChange = (e) => {
         e.preventDefault();

@@ -15,9 +15,13 @@ body {
 
 .table {
     color: white;
+    background-color: rgba(0,0,0,.4);
 }
 
-.pagination {
-    text-align: center;
+.paginationNav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    pagination-color :black;
 }
 

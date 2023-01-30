@@ -5,6 +5,7 @@ function PaginationFunctions ({url, count, prevPageUrl, nextPageUrl, search, set
 
     const nextKey =  (e) => {
         e.preventDefault();
+        if (!nextPageUrl) return;
         setUrl(nextPageUrl);
     };
     
@@ -16,6 +17,7 @@ function PaginationFunctions ({url, count, prevPageUrl, nextPageUrl, search, set
 
     const previousKey = (e) => {
         e.preventDefault();
+        if (!prevPageUrl) return;
         setUrl(prevPageUrl);
     }
 

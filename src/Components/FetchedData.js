@@ -47,8 +47,6 @@ function FetchedData({search, url, setUrl}) {
     }
     getData();
   }, [url])
-
-  
   
   const tableBody = characters.map((character, index) => {
     return (

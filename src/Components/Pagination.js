@@ -16,7 +16,7 @@ const Pagination = ({ nextKey, numberedKey, previousKey, count, prevPageUrl, nex
         )
     }
 
-    return <nav aria-label="...">
+    return <nav aria-label="..." className="paginationNav">
         <ul className="pagination">
             <li className={prevPageUrl ? "page-item" : "page-item disabled"} onClick={previousKey}><a className="page-link" href={prevPageUrl} tabIndex="-1" aria-disabled="true">Previous</a></li>
             {numberButtons}
