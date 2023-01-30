@@ -1,6 +1,6 @@
 # Star Wars Database
 
-Interested in your favorite Star Wars character's homeworld, or weight? Simply type in their name (i.e., "Darth Maul") and the information will be displayed on a nicely organized table!
+Interested in your favorite Star Wars character's homeworld, or weight? Simply type in their name (i.e., "Darth Maul"), run the search, and the information will be displayed on a nicely organized table! If you would like to just simply scroll through a list of characters, use the pagination below the table!
 
 Use it [here](https://main--stellar-biscuit-661310.netlify.app/) 
 
