@@ -15,5 +15,5 @@ All in all I am very happy with how it works, as well as how it looks.
 
 
 ## Author
-Evan Oyster - Front End Developer
+Evan Oyster - Web Developer
 [LinkedIn](https://www.linkedin.com/feed/)
